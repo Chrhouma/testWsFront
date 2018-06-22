@@ -1,0 +1,87 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+<!--<link href="/css/home.css" rel="stylesheet" type="text/css"/>-->
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type= "text/javascript" src="js/jshome.js"></script>
+<!-- affichage de menu -->
+
+<div id="topo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
+        <a href="index.php"><h2>LOGO</h2></a>
+      </div>
+      <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
+        <a href="#" class="btn-collapse">
+          <div class="lista-collapse"></div>
+          <div class="lista-collapse"></div>
+          <div class="lista-collapse"></div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <ul id="menu-topo">
+        <li><a href="index.php">Scénarios</a></li>
+        <li><a href="portfolio.php">Web services</a></li>
+        <li><a href="como-feito.php">Visualiser</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Fin affichage de menu -->
+  <!-- affichage de contenu -->
+  <div id="topo">
+    <div class="container" >
+      <div class="row" >
+        <nav>
+          <a href="/home">home</a>
+          >
+          <a href="/Scénarios">Scénarios</a>
+
+        </nav>
+      </div>
+      <div class="row" id="container-body">
+        <!-- affichage de description de scénario-->
+        <h3>Scénarios</h3>
+        <div class="col-md-5 col-ms-6 col-xs-6" id="scenario-description">
+          <p> Cet outil permet de tester XX sénarios  </p>
+          <div>
+            <span>Date d'exécution :</span> <time>24/05/2018</time>
+          </div>
+          <div>
+            <span>Nombre total de tests effectués :</span> 20
+          </div>
+          <div>
+            <span>Nombre total d'echecs :</span> 15
+          </div>
+          <div>
+            <span>Taux de modification :</span> 60%
+          </div>
+        </div>
+        <!-- affichage de la liste des scénario de scénario-->
+        <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
+          <div class="row">
+            <div class="scrollbar" id="style-7">
+              <div class="force-overflow">
+                <div *ngFor=" let scenario of datas">
+                  <div class="scenario_item"><a href="{{scenario.id}}">{{scenario.name}}</a> </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <button class="btn" id="btn-new">Nouveau Scénario</button>
+          </div>
+        </div>
+      </div>
+      <!-- affichage de bouton -->
+      <!--<div class="row">
+          <button class="btn" id="btn-test" onclick=" testerScenario()" >Tester</button>
+          <button class="btn" id="btn-compare" onclick="compareScenario()" >Comparer</button>
+      </div>
+      -->
+    </div>
+  </div>
+</div>
+
+
