@@ -21,9 +21,9 @@
     </div>
     <div class="row">
       <ul id="menu-topo">
-        <li><a href="index.php">Scénarios</a></li>
-        <li><a href="portfolio.php">Web services</a></li>
-        <li><a href="como-feito.php">Visualiser</a></li>
+        <li><a href="">Scénarios</a></li>
+        <li><a href="">Web services</a></li>
+        <li><a href="">Visualiser</a></li>
       </ul>
     </div>
   </div>
@@ -63,9 +63,8 @@
             <div class="scrollbar" id="style-7">
               <div class="force-overflow">
                 <div *ngFor=" let scenario of datas">
-                  <div class="scenario_item"><a href="{{scenario.id}}">{{scenario.name}}</a> </div>
+                  <div class="scenario_item"(click)="onSelect(scenario.id)" >{{scenario.name}} </div>
                 </div>
-
               </div>
             </div>
           </div>
