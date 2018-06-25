@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
-        <a href=""><h2>LOGO</h2></a>
+        <a href="index.php"><h2>LOGO</h2></a>
       </div>
       <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
         <a href="#" class="btn-collapse">
@@ -23,53 +23,41 @@
     </div>
     <div class="row">
       <ul id="menu-topo">
-        <li><a href="senarios">Scénarios</a></li>
-        <li><a href="webServices">Web services</a></li>
-        <li><a href="">Visualiser</a></li>
+        <li><a href="index.php">Scénarios</a></li>
+        <li><a href="portfolio.php">Web services</a></li>
+        <li><a href="como-feito.php">Visualiser</a></li>
       </ul>
     </div>
   </div>
   <!-- Fin affichage de menu -->
   <!-- affichage de contenu -->
-  <div *ngFor=" let info of allinfo">
   <div id="topo">
     <div class="container" >
       <div class="row" >
         <nav>
           <a href="/home">home</a>
           >
-          <a href="senarios">Scénarios</a>
-          >
-          <a >{{info.name}}</a>
+          <a href="webServices">Web services</a>
+
         </nav>
       </div>
       <div class="row" id="container-body">
+        <h3>Web services</h3>
         <!-- affichage de description de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="scenario-description">
 
-          <h3>{{info?.name}}</h3>
-          <p> Ce scénario de test permet de tester un enchaînement des web services</p>
-           <!-- <div class="scenario_item"  *ngFor=" let record of info?.webServices">
-
-                {{record?.name}}       {{record?.rang}}
-
-            </div>-->
-          <span *ngFor=" let record of info?.webServices">
-
-            <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
-            <span style="background-color:darksalmon">{{record?.rang}}</span>
-          </span>
+          <p> cet outil permet de tester xx web services</p>
           <div>
-            <span>Date d'exécution :</span> <time>24/05/2018</time>
+            <span>Date d'exécution :</span> <time>25/05/2018</time>
           </div>
           <div>
-            <span>Nombre total de tests effectués :</span> 20
+            <span>Nombre total de web services testés :</span>30
           </div>
           <div>
-            <span>Nombre total d'echecs :</span> 15
+            <span>Nombre total d'echecs :</span> 10
           </div>
           <div>
-            <span>Taux de modification :</span> 60%
+            <span>Taux de modification :</span> 33%
           </div>
         </div>
         <!-- affichage de la liste des scénario de scénario-->
@@ -77,26 +65,25 @@
           <div class="row">
             <div class="scrollbar" id="style-7">
               <div class="force-overflow">
-                <!--<div *ngFor=" let inf of records">
-                    <div class="scenario_item" ><input type="checkbox"/>{{inf.name}}1</div>
-                </div>-->
-                <div class="scenario_item"  *ngFor=" let record of info?.records"><input type="checkbox"/>{{record?.name}}1</div>
-
+                <div *ngFor=" let webService of datas">
+                  <div class="scenario_item"(click)="onSelect(webService.id)" >{{webService.name}} </div>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
-            <button class="btn" id="btn-new">Comparer</button>
+            <button class="btn" id="btn-new"  >Nouveau Web Service</button>
           </div>
         </div>
       </div>
       <!-- affichage de bouton -->
+      <!--
       <div class="row">
-        <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
-        <button class="btn" id="btn-compare" onclick="compareScenario()" >Comparer</button>
+          <button class="btn" id="btn-test" onclick=" testerWs()" >Tester</button>
+          <button class="btn" id="btn-compare" onclick="compareWs()" >Comparer</button>
       </div>
+      -->
     </div>
-  </div>
   </div>
 </div>
 

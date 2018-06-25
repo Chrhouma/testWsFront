@@ -38,49 +38,35 @@
         <nav>
           <a href="/home">home</a>
           >
-          <a href="senarios">Scénarios</a>
+          <a href="webServices">Web services</a>
           >
-          <a >{{info.name}}</a>
+          <a > {{info.name}} </a>
         </nav>
       </div>
       <div class="row" id="container-body">
         <!-- affichage de description de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="scenario-description">
 
-          <h3>{{info?.name}}</h3>
-          <p> Ce scénario de test permet de tester un enchaînement des web services</p>
-           <!-- <div class="scenario_item"  *ngFor=" let record of info?.webServices">
-
-                {{record?.name}}       {{record?.rang}}
-
-            </div>-->
-          <span *ngFor=" let record of info?.webServices">
-
+          <h3>{{info.name}}</h3>
+          <div> {{info.description}}</div>
+          <div>
+            <span>Url :</span> <a>{{info.url}}</a>
+          </div>
+          <a *ngFor=" let record of info?.scenarios">
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
-            <span style="background-color:darksalmon">{{record?.rang}}</span>
-          </span>
-          <div>
-            <span>Date d'exécution :</span> <time>24/05/2018</time>
-          </div>
-          <div>
-            <span>Nombre total de tests effectués :</span> 20
-          </div>
-          <div>
-            <span>Nombre total d'echecs :</span> 15
-          </div>
-          <div>
-            <span>Taux de modification :</span> 60%
-          </div>
+
+
+          </a>
+
+
+
         </div>
         <!-- affichage de la liste des scénario de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
           <div class="row">
             <div class="scrollbar" id="style-7">
               <div class="force-overflow">
-                <!--<div *ngFor=" let inf of records">
-                    <div class="scenario_item" ><input type="checkbox"/>{{inf.name}}1</div>
-                </div>-->
-                <div class="scenario_item"  *ngFor=" let record of info?.records"><input type="checkbox"/>{{record?.name}}1</div>
+                <div class="scenario_item"  *ngFor=" let record of info?.records"><input type="checkbox"/>{{record?.name}}</div>
 
               </div>
             </div>
@@ -92,7 +78,7 @@
       </div>
       <!-- affichage de bouton -->
       <div class="row">
-        <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
+        <button class="btn" id="btn-test" onclick=" testerScenario()" >Tester</button>
         <button class="btn" id="btn-compare" onclick="compareScenario()" >Comparer</button>
       </div>
     </div>

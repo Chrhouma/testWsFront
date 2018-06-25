@@ -25,10 +25,6 @@ getScenarios() {
 }
 
     onSelect(event: string) {
-
-       /*this.router.navigate( id);*/
-       // this.router.navigateByUrl('/senario/' + id);
-        this.router.navigate(['senarios', event]);
-       //console.log('iciiiii' + event);
-    }
+               this.router.navigate(['senarios', event]);
+          }
 }

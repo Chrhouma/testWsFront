@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-senario',
@@ -12,7 +13,7 @@ export class SenarioComponent implements OnInit {
     private records: Array<any>;
     private idSelected: string;
     private datas: any;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.idSelected = this.route.snapshot.params['id'];
@@ -22,7 +23,14 @@ export class SenarioComponent implements OnInit {
         this.httpClient.get('http://localhost:8889/scenario?id=' + event)
         .subscribe(Scenario => {
                  this.allinfo = Scenario['scenario'];
-
+                console.log(this.allinfo);
             });
     }
+    testerScenario(event: string) {
+     this.httpClient.get('http://localhost:8889/scenario/tester?id=' + event);
+          console.log('okk' + event);
+    }
+    /*onSelect(event: string) {
+        this.router.navigate(['webServices', event]);
+    }*/
 }

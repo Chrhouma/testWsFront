@@ -11,6 +11,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {DataService} from './data.service';
 import {HttpClientModule} from '@angular/common/http';
 import { SenarioComponent } from './senario/senario.component';
+import { WebservicesComponent } from './webservices/webservices.component';
+import { WebserviceComponent } from './webservice/webservice.component';
 
 
 
@@ -20,7 +22,9 @@ import { SenarioComponent } from './senario/senario.component';
     LoginComponent,
     HomeComponent,
     SenariosComponent,
-    SenarioComponent
+    SenarioComponent,
+    WebservicesComponent,
+    WebserviceComponent
   ],
   imports: [
     HttpClientModule,

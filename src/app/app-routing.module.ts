@@ -7,6 +7,9 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { SenariosComponent } from './senarios/senarios.component';
 import { SenarioComponent } from './senario/senario.component';
+import { WebservicesComponent } from './webservices/webservices.component';
+import { WebserviceComponent } from './webservice/webservice.component';
+
 const routes: Routes = [
     {
         path: '',
@@ -19,16 +22,19 @@ const routes: Routes = [
     {
         path: 'senarios',
         component: SenariosComponent
-      /*  children: [
-
-                { path: 'senario', component: SenarioComponent }
-
-        ]*/
     },
     {
         path: 'senarios/:id',
         component: SenarioComponent
-    }
+    },
+    {
+        path: 'webServices',
+        component: WebservicesComponent
+    },
+    {
+        path: 'webServices/:id',
+        component: WebserviceComponent
+    },
    ];
 @NgModule({
     imports : [RouterModule.forRoot(routes)],
