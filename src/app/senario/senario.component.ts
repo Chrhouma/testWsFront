@@ -1,22 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
+import {ActivatedRoute} from '@angular/router';
+
 @Component({
   selector: 'app-senario',
   templateUrl: './senario.component.html',
   styleUrls: ['./senario.component.css']
 })
 export class SenarioComponent implements OnInit {
+    private allinfo: Array<any>;
+    private records: Array<any>;
+    private idSelected: string;
+    private datas: any;
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute) { }
 
-  private allinfo: Array<any>;
-  private idSelected: string;
-  constructor(private httpClient: HttpClient) { }
   ngOnInit() {
+    this.idSelected = this.route.snapshot.params['id'];
     this.getAllInfoScenario(this.idSelected);
   }
-  getAllInfoScenario(event: string) {
-    this.httpClient.get('http://localhost:8889//scenario?id=' + event)
-        .subscribe( infos => {
-          this.allinfo = infos['scenario'];
-        });
-  }
+    getAllInfoScenario(event: string) {
+        this.httpClient.get('http://localhost:8889/scenario?id=' + event)
+        .subscribe(Scenario => {
+                 this.allinfo = Scenario['scenario'];
+
+            });
+    }
 }

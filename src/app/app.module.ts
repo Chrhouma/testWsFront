@@ -12,6 +12,8 @@ import {DataService} from './data.service';
 import {HttpClientModule} from '@angular/common/http';
 import { SenarioComponent } from './senario/senario.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,11 +23,12 @@ import { SenarioComponent } from './senario/senario.component';
     SenarioComponent
   ],
   imports: [
-      HttpClientModule,
+    HttpClientModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-      AppRoutingModule
+    AppRoutingModule
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent]
