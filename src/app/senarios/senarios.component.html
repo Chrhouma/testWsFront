@@ -63,7 +63,11 @@
             <div class="scrollbar" id="style-7">
               <div class="force-overflow">
                 <div *ngFor=" let scenario of datas">
+<!--
                   <div class="scenario_item"><a href="{{scenario.id}}">{{scenario.name}}</a> </div>
+-->
+                  <div class="scenario_item"><a (click)="getAllInfoScenario(scenario.id)"> {{scenario.name}}</a> </div>
+
                 </div>
 
               </div>

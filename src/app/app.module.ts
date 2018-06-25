@@ -10,13 +10,15 @@ import { SenariosComponent } from './senarios/senarios.component';
 import {AppRoutingModule} from './app-routing.module';
 import {DataService} from './data.service';
 import {HttpClientModule} from '@angular/common/http';
+import { SenarioComponent } from './senario/senario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    SenariosComponent
+    SenariosComponent,
+    SenarioComponent
   ],
   imports: [
       HttpClientModule,
