@@ -13,6 +13,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { SenarioComponent } from './senario/senario.component';
 import { WebservicesComponent } from './webservices/webservices.component';
 import { WebserviceComponent } from './webservice/webservice.component';
+import { ComparaisonComponent } from './comparaison/comparaison.component';
 
 
 
@@ -24,7 +25,8 @@ import { WebserviceComponent } from './webservice/webservice.component';
     SenariosComponent,
     SenarioComponent,
     WebservicesComponent,
-    WebserviceComponent
+    WebserviceComponent,
+    ComparaisonComponent
   ],
   imports: [
     HttpClientModule,

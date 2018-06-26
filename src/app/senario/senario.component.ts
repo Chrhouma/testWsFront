@@ -10,10 +10,8 @@ import {Router} from '@angular/router';
 })
 export class SenarioComponent implements OnInit {
     private allinfo: Array<any>;
-    private records: Array<any>;
     private idSelected: string;
-    private datas: any;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
+    constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.idSelected = this.route.snapshot.params['id'];
@@ -23,14 +21,12 @@ export class SenarioComponent implements OnInit {
         this.httpClient.get('http://localhost:8889/scenario?id=' + event)
         .subscribe(Scenario => {
                  this.allinfo = Scenario['scenario'];
-                console.log(this.allinfo);
-            });
+               });
     }
-    testerScenario(event: string) {
-     this.httpClient.get('http://localhost:8889/scenario/tester?id=' + event);
-          console.log('okk' + event);
+
+       testerScenario(event: string) {
+        this.httpClient.get('http://localhost:8889/scenario/tester?idScenario=' + event).subscribe(() => {
+            this.getAllInfoScenario(this.idSelected);
+        });
     }
-    /*onSelect(event: string) {
-        this.router.navigate(['webServices', event]);
-    }*/
 }

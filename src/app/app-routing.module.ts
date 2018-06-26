@@ -9,6 +9,7 @@ import { SenariosComponent } from './senarios/senarios.component';
 import { SenarioComponent } from './senario/senario.component';
 import { WebservicesComponent } from './webservices/webservices.component';
 import { WebserviceComponent } from './webservice/webservice.component';
+import { ComparaisonComponent } from './comparaison/comparaison.component';
 
 const routes: Routes = [
     {
@@ -21,11 +22,16 @@ const routes: Routes = [
     },
     {
         path: 'senarios',
-        component: SenariosComponent
+        component: SenariosComponent,
+
     },
     {
         path: 'senarios/:id',
         component: SenarioComponent
+    },
+    {
+        path: 'senarios/:id/:idRecord1/:idRecord2',
+        component: ComparaisonComponent
     },
     {
         path: 'webServices',
