@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class SenarioComponent implements OnInit {
     private allinfo: Array<any>;
+    private alldelta: Array<any>;
     private idSelected: string;
     constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
@@ -28,5 +29,29 @@ export class SenarioComponent implements OnInit {
         this.httpClient.get('http://localhost:8889/scenario/tester?idScenario=' + event).subscribe(() => {
             this.getAllInfoScenario(this.idSelected);
         });
+    }
+    public comparerScenario = ( info: any) => {
+        let event1, event2, event;
+        event = info.id ;
+        info.records.forEach((record) => {
+
+            if (record.checked) {
+                if (event1) {
+                    event2 = record.id;
+                } else {
+                    event1 = record.id;
+                }
+            }
+        });
+        this.httpClient.get('http://localhost:8889/scenarioRecord/comparer?idScenarioRecord1=' + event1 + '&idScenarioRecord2=' + event2)
+            .subscribe(Deltas => {
+
+
+                this.router.navigate(['senarios/' + event + '/' + event1 + '/' + event2])
+                this.alldelta = Deltas['deltas'];
+                this.getAllInfoScenario(this.idSelected);
+
+            });
+
     }
 }

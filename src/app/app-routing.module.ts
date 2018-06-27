@@ -13,7 +13,7 @@ import { ComparaisonComponent } from './comparaison/comparaison.component';
 
 const routes: Routes = [
     {
-        path: '',
+        path: 'home',
         component: HomeComponent
     },
     {

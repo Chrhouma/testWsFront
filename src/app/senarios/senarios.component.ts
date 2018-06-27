@@ -27,4 +27,5 @@ getScenarios() {
     onSelect(event: string) {
                this.router.navigate(['senarios', event]);
           }
+
 }

@@ -81,7 +81,7 @@
                     <div class="scenario_item" ><input type="checkbox"/>{{inf.name}}1</div>
                 </div>-->
                 <div class="scenario_item"  *ngFor=" let record of info?.records">
-                  <input  type="checkbox"/>{{record?.name}}
+                  <input  type="checkbox" [(ngModel)]="record.checked"/>{{record?.name}}
                 </div>
 
               </div>
@@ -95,7 +95,7 @@
       <!-- affichage de bouton -->
       <div class="row">
         <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
-        <button class="btn" id="btn-compare" (click)="comparerScenario()" >Comparer</button>
+        <button class="btn" id="btn-compare" (click)="comparerScenario(info)" >Comparer</button>
       </div>
     </div>
   </div>
