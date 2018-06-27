@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
-        <a href=""><h2>LOGO</h2></a>
+        <a href="home"><h2>LOGO</h2></a>
       </div>
       <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
         <a href="#" class="btn-collapse">
@@ -36,11 +36,11 @@
     <div class="container" >
       <div class="row" >
         <nav>
-          <a href="/home">home</a>
+          <a href="home">home</a>
           >
           <a href="webServices">Web services</a>
           >
-          <a > {{info.name}} </a>
+          <a  > {{info.name}} </a>
         </nav>
       </div>
       <div class="row" id="container-body">
@@ -50,7 +50,7 @@
           <h3>{{info.name}}</h3>
           <div> {{info.description}}</div>
           <div>
-            <span>Url :</span> <a>{{info.url}}</a>
+            <span>Url :</span> <a >{{info.url}}</a>
           </div>
           <a *ngFor=" let record of info?.scenarios">
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
