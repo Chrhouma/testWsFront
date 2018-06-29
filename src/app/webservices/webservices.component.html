@@ -45,19 +45,16 @@
         <h3>Web services</h3>
         <!-- affichage de description de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="scenario-description">
+          <div *ngFor=" let data of datainfo">
+          <p> cet outil permet de tester  {{data.nbWebServiceTotale}}  web services</p>
 
-          <p> cet outil permet de tester xx web services</p>
           <div>
-            <span>Date d'exécution :</span> <time>25/05/2018</time>
+            <span>Nombre total des enregistrements :</span>{{data.nbWebServiceTotale}}
           </div>
           <div>
-            <span>Nombre total de web services testés :</span>30
+            <span>Nombre total d'echecs :</span> {{data.nbDelta}}
           </div>
-          <div>
-            <span>Nombre total d'echecs :</span> 10
-          </div>
-          <div>
-            <span>Taux de modification :</span> 33%
+
           </div>
         </div>
         <!-- affichage de la liste des scénario de scénario-->

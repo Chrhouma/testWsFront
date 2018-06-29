@@ -48,8 +48,8 @@
                 <div class="texte-alerte">Nombre de web services modifiés : <a href="#">{{scenario.nbmodification}}/ {{scenario.nbwebServiceTotale}} Web services</a>
 
                   <div class="progress">
-                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{scenario.tauxModification}} %">
-                      10%
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="scenario.tauxModification.toFixed(0)+ '%'">
+                        {{scenario.tauxModification}}%
                     </div>
                   </div>
                 </div>
