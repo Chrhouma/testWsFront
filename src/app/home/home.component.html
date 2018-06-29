@@ -42,32 +42,20 @@
           <img src="../../assets/alerte.jpg"/>
         </div>
         <div class="col-md-5 col-ms-6 col-xs-6" id="statistique">
-          <div class="texte-alerte">Nombre de scénarios modifiés : <a href="#">5 / 10 scénarios</a>
+          <div *ngFor="let test of datas">
+             <div *ngFor="let scenario of test?.modification">
+               <div> {{scenario.scenarioName}}</div>
+                <div class="texte-alerte">Nombre de web services modifiés : <a href="#">{{scenario.nbmodification}}/ {{scenario.nbwebServiceTotale}} Web services</a>
 
-            <div class="progress">
-              <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:50%">
-                50%
-              </div>
-            </div>
-
-          </div>
-          <div class="texte-alerte"> Nombre de web Services modifiés : <a href="#">25/100 web services</a>
-            <div class="progress">
-              <div class="progress-bar  progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:25%">
-                25%
-              </div>
-            </div>
-
-          </div>
-
-          <div class="texte-alerte">Nombre de ligne modifiés : <a href="#">300/15000 lignes</a>
-            <div class="progress">
-              <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:2%">
-                2%
-              </div>
+                  <div class="progress">
+                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: {{scenario.tauxModification}} %">
+                      10%
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
-        </div>
+         </div>
       </div>
     </div>
   </div>

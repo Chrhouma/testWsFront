@@ -50,7 +50,7 @@ export class SenarioComponent implements OnInit {
                 this.router.navigate(['senarios/' + event + '/' + event1 + '/' + event2])
                 this.alldelta = Deltas['deltas'];
                 this.getAllInfoScenario(this.idSelected);
-
+                 console.log(Deltas);
             });
 
     }
