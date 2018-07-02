@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {NgModule, Pipe, PipeTransform} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -14,6 +14,9 @@ import { SenarioComponent } from './senario/senario.component';
 import { WebservicesComponent } from './webservices/webservices.component';
 import { WebserviceComponent } from './webservice/webservice.component';
 import { ComparaisonComponent } from './comparaison/comparaison.component';
+import { SortByPipe} from './pipes/SortByPipe';
+import { SortByDate} from './pipes/SortByDate';
+import { SortByName} from './pipes/SortByName';
 
 
 
@@ -26,7 +29,10 @@ import { ComparaisonComponent } from './comparaison/comparaison.component';
     SenarioComponent,
     WebservicesComponent,
     WebserviceComponent,
-    ComparaisonComponent
+    ComparaisonComponent,
+    SortByPipe,
+    SortByDate,
+    SortByName
   ],
   imports: [
     HttpClientModule,

@@ -62,7 +62,7 @@
           <div class="row">
             <div class="scrollbar" id="style-7">
               <div class="force-overflow">
-                <div *ngFor=" let webService of datas">
+                <div *ngFor=" let webService of datas | sortByName">
                   <div class="scenario_item"(click)="onSelect(webService.id)" >{{webService.name}} </div>
                 </div>
               </div>

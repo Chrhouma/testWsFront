@@ -54,11 +54,11 @@
                 {{record?.name}}       {{record?.rang}}
 
             </div>-->
-          <span *ngFor=" let record of info?.webServices">
+          <div *ngFor=" let record of info?.webServices | sortByrang: 'isDir': true">
 
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
             <span style="background-color:darksalmon">{{record?.rang}}</span>
-          </span>
+          </div>
           <!--<div>
             <span>Date d'exécution :</span> <time>24/05/2018</time>
           </div>
@@ -80,7 +80,7 @@
                 <!--<div *ngFor=" let inf of records">
                     <div class="scenario_item" ><input type="checkbox"/>{{inf.name}}1</div>
                 </div>-->
-                <div class="scenario_item"  *ngFor=" let record of info?.records">
+                <div class="scenario_item"  *ngFor=" let record of info?.records | sortByDate ">
                   <input  type="checkbox" [(ngModel)]="record.checked"/>{{record?.name}}
                 </div>
 
