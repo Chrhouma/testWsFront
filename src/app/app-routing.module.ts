@@ -25,6 +25,7 @@ const routes: Routes = [
         component: SenariosComponent,
 
     },
+
     {
         path: 'senarios/:id',
         component: SenarioComponent

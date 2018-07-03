@@ -56,8 +56,9 @@
             </div>-->
           <div *ngFor=" let record of info?.webServices | sortByrang: 'isDir': true">
 
+            <span style="background-color:darksalmon">{{record?.rang}}   </span>
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
-            <span style="background-color:darksalmon">{{record?.rang}}</span>
+
           </div>
           <!--<div>
             <span>Date d'exécution :</span> <time>24/05/2018</time>
