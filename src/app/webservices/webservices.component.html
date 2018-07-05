@@ -57,6 +57,38 @@
 
           </div>
         </div>
+        <!--zone de saisir les informations d'un nouveau service web-->
+        <div class="col-md-5 col-ms-6 col-xs-6" id="formulaire">
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Name" [(ngModel)]="name"type="text" style="width: 68%"/>
+            <select  [(ngModel)]="slectedMethode" style="width: 30%;">
+              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+
+            </select>
+
+          </div>
+          <div style="padding-bottom: 5%  ;width: 100%">
+            <input  placeholder="Url" [(ngModel)]="url"type="text" style="width: 99%"/>
+          </div>
+          <div style="padding-bottom: 5%">
+            <input  placeholder="Body" [(ngModel)]="body"type="text"style="width: 99%"/>
+          </div>
+          <div style="padding-bottom: 5%">
+            <input  placeholder="Description" [(ngModel)]="description"type="text"style="width: 99%"/>
+          </div>
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Input schema" [(ngModel)]="inputSchema"type="text"/>
+            <input  placeholder="Input path schema"[(ngModel)]="inputSchemapath" type="text"/>
+          </div>
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Output schema" [(ngModel)]="outputSchema" type="text"/>
+            <input  placeholder="Output path schema" [(ngModel)]="outputSchemapath" type="text"/>
+          </div>
+          <div >
+            <button class="btn" id="btn-new"(click)="addWebService(name,url,slectedMethode.name,body,description, inputSchema, inputSchemapath,outputSchema,outputSchemapath)">Add Web Service</button>
+
+          </div>
+        </div>
         <!-- affichage de la liste des scénario de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
           <div class="row">
@@ -68,41 +100,10 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <button class="btn" id="btn-new" data_target="#basicModal" >Nouveau Web Service</button>
-          </div>
+
         </div>
         <!--PO-PUP-->
-        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" style="background-color: red; border-radius: 30px; size: 10px">×</button>
-              </div>
-              <form>
-                <div class="modal-body">
-                  <div class="col-md-6">
-                    <h3> Device <small><i></i></small></h3>
-                    <div class="form-group">
-                      <div *ngFor=" let device of allinfo" >
-                        <div style="background-color:lightblue;border-radius: 3px;width: 150%">
-                          <label>SubSystem:</label> {{device.subSystem}}<br>
-                          <label> EndPoint:</label>{{device.endPoint}}<br>
-                          <label>Mesure: </label> {{device.mesure}}><br>
-                          <label>Mesure Unit: </label>{{device.mesureUnite}}<br>
-                          <label>Mashup: </label>{{device.mashup}} <br>
-                        </div>
-                        <br>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="modal-footer">
-                </div>
-              </form>
-            </div>
-          </div>
-      </div>
+
       <!-- affichage de bouton -->
       <!--
       <div class="row">
@@ -111,9 +112,9 @@
       </div>
       -->
     </div>
-  </div>
-
+   </div>
   </div>
 </div>
+
 
 

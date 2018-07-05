@@ -10,6 +10,11 @@ import {Router} from '@angular/router';
 export class WebservicesComponent implements OnInit {
 datas: any;
 datainfo: any;
+methodes = [
+    { id: 1, name: 'Get' },
+    { id: 2, name: 'Post'}
+];
+slectedMethode = null;
   constructor(private  httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
@@ -38,6 +43,19 @@ datainfo: any;
              this.datainfo = info['infogenerale'];
              console.log(info);
          });
+
   }
+  addWebService(name: string, url: string, slectedMethode: string, description: string, body: string, inputschema: string,
+                inputSchemapath: string, outputSchema: string, outputSchemapath: string ) {
+            this.httpClient.get('http://localhost:8889/webService/add?name=' + name + '&url=' + url +
+            '&description=' + description + '&methode=' + slectedMethode + '&body=' + body + '&inputSchemaName=' + inputschema +
+            '&inputSchemapath=' + inputSchemapath + '&outputSchemaName=' + outputSchema +
+            '&outputSchemapath=' + outputSchemapath )
+                .subscribe(() => {
+                this.getWebServices();
+                console.log('web service bien ajouter');
+                });
+  }
+
 
 }
