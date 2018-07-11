@@ -48,19 +48,36 @@
           <div *ngFor=" let scenario of datas">
             <li>{{scenario.name}}</li>
           </div>
+        </div>
+        <!--zone de saisie d'un nouveau scenario-->
 
-         <!-- <div>
-            <span>Date d'exécution :</span> <time>24/05/2018</time>
+
+        <div class="col-md-5 col-ms-6 col-xs-6" id="formulaire">
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Name" [(ngModel)]="name"type="text" style="width: 68%"/>
+            <select  [(ngModel)]="slectedMethode" style="width: 30%;">
+              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+            </select>
           </div>
+          WebServices:
           <div>
-            <span>Nombre total de tests effectués :</span> 20
+            <select  [(ngModel)]="slectedMethode" style="width: 50%;">
+              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+            </select>
+            <select  [(ngModel)]="slectedMethode" style="width: 30%;">
+              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+            </select>
+            <a href="#" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok-sign"></span> </a>
           </div>
-          <div>
-            <span>Nombre total d'echecs :</span> 15
+          <div style="padding-bottom: 5%  ;width: 100%;">
+
+            <input  placeholder="Cron" [(ngModel)]="cron"type="text" style="width: 99%;height: 100px"/>
           </div>
-          <div>
-            <span>Taux de modification :</span> 60%
-          </div>-->
+
+          <div >
+            <button class="btn" id="btn-new"(click)="addWebService(name,url,slectedMethode.name,body,description, inputSchema, inputSchemapath,outputSchema,outputSchemapath)">Add Web Service</button>
+
+          </div>
         </div>
         <!-- affichage de la liste des scénario de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
@@ -78,12 +95,7 @@
           </div>
         </div>
       </div>
-      <!-- affichage de bouton -->
-      <!--<div class="row">
-          <button class="btn" id="btn-test" onclick=" testerScenario()" >Tester</button>
-          <button class="btn" id="btn-compare" onclick="compareScenario()" >Comparer</button>
-      </div>
-      -->
+
     </div>
   </div>
 

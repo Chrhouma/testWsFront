@@ -19,7 +19,6 @@ slectedMethode = null;
 
   ngOnInit() {
     this.getWebServices();
-
   }
     getWebServices() {
     this.httpClient.get('http://localhost:8889/webServices')
@@ -28,7 +27,6 @@ slectedMethode = null;
           console.log(webServices);
         },
             error => {
-
             },
             () => {
                 this.getinfo();
@@ -43,7 +41,6 @@ slectedMethode = null;
              this.datainfo = info['infogenerale'];
              console.log(info);
          });
-
   }
   addWebService(name: string, url: string, slectedMethode: string, description: string, body: string, inputschema: string,
                 inputSchemapath: string, outputSchema: string, outputSchemapath: string ) {
@@ -56,6 +53,5 @@ slectedMethode = null;
                 console.log('web service bien ajouter');
                 });
   }
-
 
 }
