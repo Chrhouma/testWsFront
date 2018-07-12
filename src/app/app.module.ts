@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import {NgModule, Pipe, PipeTransform} from '@angular/core';
+import {NgModule, Pipe, PipeTransform, ViewContainerRef} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
@@ -17,6 +17,8 @@ import { ComparaisonComponent } from './comparaison/comparaison.component';
 import { SortByPipe} from './pipes/SortByPipe';
 import { SortByDate} from './pipes/SortByDate';
 import { SortByName} from './pipes/SortByName';
+
+
 
 
 

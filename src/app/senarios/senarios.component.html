@@ -55,28 +55,32 @@
         <div class="col-md-5 col-ms-6 col-xs-6" id="formulaire">
           <div style="padding-bottom: 5% ;width: 100%">
             <input  placeholder="Name" [(ngModel)]="name"type="text" style="width: 68%"/>
-            <select  [(ngModel)]="slectedMethode" style="width: 30%;">
-              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+            <select  [(ngModel)]="selectedCron" style="width: 30%;">
+              <option *ngFor=" let cron of crons" [ngValue]="cron"> {{cron.value}}</option>
             </select>
           </div>
-          WebServices:
           <div>
-            <select  [(ngModel)]="slectedMethode" style="width: 50%;">
-              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+          <span style="width: 50%;">WebServices</span>
+          <span style="padding-left: 30%">Rang</span>
+          </div>
+          <div>
+            <select  [(ngModel)]="slectedWebservice" style="width: 50%;">
+              <option *ngFor=" let webService of dataWebService" [ngValue]="webService"> {{webService.name}}</option>
             </select>
-            <select  [(ngModel)]="slectedMethode" style="width: 30%;">
-              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+
+            <select  [(ngModel)]="slectedRang" style="width: 30%;">
+              <option *ngFor=" let rang of rangs" [ngValue]="rang"> {{rang.value}}</option>
             </select>
-            <a href="#" class="btn btn-lg btn-success"><span class="glyphicon glyphicon-ok-sign"></span> </a>
+            <button class="btn btn-lg btn-success" (click)="addWebService(slectedWebservice.id, slectedRang.value)"><span class="glyphicon glyphicon-ok-sign"></span> </button>
+
           </div>
           <div style="padding-bottom: 5%  ;width: 100%;">
 
-            <input  placeholder="Cron" [(ngModel)]="cron"type="text" style="width: 99%;height: 100px"/>
+            <input  placeholder="" [(ngModel)]="cron"type="text" style="width: 99%;height: 100px"/>
           </div>
 
           <div >
-            <button class="btn" id="btn-new"(click)="addWebService(name,url,slectedMethode.name,body,description, inputSchema, inputSchemapath,outputSchema,outputSchemapath)">Add Web Service</button>
-
+            <button class="btn" id="btn-new"(click)="addScenario(name,selectedCron.value)">Add Scenario</button>
           </div>
         </div>
         <!-- affichage de la liste des scénario de scénario-->
@@ -90,9 +94,7 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <button class="btn" id="btn-new">Nouveau Scénario</button>
-          </div>
+
         </div>
       </div>
 
