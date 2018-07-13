@@ -8,50 +8,59 @@ import {Router} from '@angular/router';
   styleUrls: ['./webservices.component.css']
 })
 export class WebservicesComponent implements OnInit {
-datas: any;
-datainfo: any;
-methodes = [
-    { id: 1, name: 'Get' },
-    { id: 2, name: 'Post'}
-];
-slectedMethode = null;
-  constructor(private  httpClient: HttpClient, private router: Router) { }
+    datas: any;
+    datainfo: any;
+    methodes = [
+        {id: 1, name: 'Get'},
+        {id: 2, name: 'Post'}
+    ];
+    slectedMethode = null;
 
-  ngOnInit() {
-    this.getWebServices();
-  }
+    constructor(private  httpClient: HttpClient, private router: Router) {
+    }
+
+    ngOnInit() {
+        this.getWebServices();
+    }
+
     getWebServices() {
-    this.httpClient.get('http://localhost:8889/webServices')
-        .subscribe(webServices => {
-           this.datas = webServices['webservices'];
-          console.log(webServices);
-        },
-            error => {
-            },
-            () => {
-                this.getinfo();
-            });
- }
-  onSelect(event: string) {
-    this.router.navigate(['webServices', event]);
-  }
-  getinfo() {
-     this.httpClient.get('http://localhost:8889/webServices/info')
-         .subscribe(info => {
-             this.datainfo = info['infogenerale'];
-             console.log(info);
-         });
-  }
-  addWebService(name: string, url: string, slectedMethode: string, description: string, body: string, inputschema: string,
-                inputSchemapath: string, outputSchema: string, outputSchemapath: string ) {
-            this.httpClient.get('http://localhost:8889/webService/add?name=' + name + '&url=' + url +
-            '&description=' + description + '&methode=' + slectedMethode + '&body=' + body + '&inputSchemaName=' + inputschema +
-            '&inputSchemapath=' + inputSchemapath + '&outputSchemaName=' + outputSchema +
-            '&outputSchemapath=' + outputSchemapath )
-                .subscribe(() => {
-                this.getWebServices();
-                console.log('web service bien ajouter');
+        this.httpClient.get('http://localhost:8889/webServices')
+            .subscribe(webServices => {
+                    this.datas = webServices['webservices'];
+                    console.log(webServices);
+                },
+                error => {
+                },
+                () => {
+                    this.getinfo();
                 });
-  }
+    }
 
+    onSelect(event: string) {
+        this.router.navigate(['webServices', event]);
+    }
+
+    getinfo() {
+        this.httpClient.get('http://localhost:8889/webServices/info')
+            .subscribe(info => {
+                this.datainfo = info['infogenerale'];
+                console.log(info);
+            });
+    }
+
+    addWebService(name: string, url: string, slectedMethode: string, body:  string, description: string, inputschema: string,
+                  inputSchemapath: string, outputSchema: string, outputSchemapath: string) {
+
+        this.httpClient.post('http://localhost:8889/webService/add?name=' + name + '&url=' + url +
+            '&description=' + description + '&methode=' + slectedMethode, body , '&inputSchemaName=' + inputschema +
+            '&inputSchemapath=' + inputSchemapath + '&outputSchemaName=' + outputSchema +
+            '&outputSchemapath=' + outputSchemapath)
+            .subscribe(() => {
+                    this.getWebServices();
+             },
+                err => {
+                    console.log('error');
+                });
+    }
 }
+
