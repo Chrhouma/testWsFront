@@ -17,6 +17,7 @@ import { ComparaisonComponent } from './comparaison/comparaison.component';
 import { SortByPipe} from './pipes/SortByPipe';
 import { SortByDate} from './pipes/SortByDate';
 import { SortByName} from './pipes/SortByName';
+import { ComparaisonWebserviceComponent } from './comparaison-webservice/comparaison-webservice.component';
 
 
 
@@ -35,7 +36,8 @@ import { SortByName} from './pipes/SortByName';
     ComparaisonComponent,
     SortByPipe,
     SortByDate,
-    SortByName
+    SortByName,
+    ComparaisonWebserviceComponent
   ],
   imports: [
     HttpClientModule,

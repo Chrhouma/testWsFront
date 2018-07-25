@@ -10,12 +10,16 @@ import {ActivatedRoute} from '@angular/router';
 export class WebserviceComponent implements OnInit {
   private idSelected: string;
   private allinfo: Array<any>;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
+  private alldelta: Array<any>;
+
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) {
+  }
 
   ngOnInit() {
     this.idSelected = this.route.snapshot.params['id'];
     this.getAllInfoWebService(this.idSelected);
   }
+
   getAllInfoWebService(event: string) {
     this.httpClient.get('http://localhost:8889/webService?id=' + event)
         .subscribe(webService => {
@@ -23,7 +27,37 @@ export class WebserviceComponent implements OnInit {
           console.log(webService);
         });
   }
+
   onSelect(event: string) {
     this.router.navigate(['senarios', event]);
+  }
+
+  public comparaison() {
+    console.log('yess');
+  }
+
+  public comparewebservice = (info: any) => {
+     let event, event1, event2;
+
+     event = info.id ;
+     info.records.forEach((record) => {
+
+     if (record.checked) {
+     if (event1) {
+     event2 = record.id;
+     } else {
+     event1 = record.id;
+     }
+     }
+    });
+
+     this.httpClient.get('http://localhost:8889/serviceRecord/comparer?idServiceRecord1=' + event1 + '&idServiceRecord2=' + event2)
+     .subscribe(Deltas => {
+     this.router.navigate(['webServices/' + event + '/' + event1 + '/' + event2])
+     this.alldelta = Deltas['deltas'];
+     this.getAllInfoWebService(this.idSelected);
+     console.log(Deltas);
+     });
+    console.log('yessss');
   }
 }

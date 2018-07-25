@@ -11,7 +11,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
-        <a href="home"><h2>LOGO</h2></a>
+        <a href="home"><h2>FrontTest</h2></a>
       </div>
       <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
         <a href="#" class="btn-collapse">
@@ -54,32 +54,25 @@
           </div>
           <a *ngFor=" let record of info?.scenarios">
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
-
-
           </a>
-
-
-
         </div>
         <!-- affichage de la liste des scénario de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
           <div class="row">
             <div class="scrollbar" id="style-7">
               <div class="force-overflow">
-                <div class="scenario_item"  *ngFor=" let record of info?.records | sortByDate"><input type="checkbox"/>{{record?.name}}</div>
-
+                <div class="scenario_item"  *ngFor=" let record of info?.records | sortByDate">
+                  <input  type="checkbox" [(ngModel)]="record.checked"/>{{record?.name}}</div>
               </div>
             </div>
           </div>
-         <!-- <div class="row">
-            <button class="btn" id="btn-new">Comparer</button>
-          </div>-->
+
         </div>
       </div>
       <!-- affichage de bouton -->
       <div class="row">
-        <button class="btn" id="btn-test" onclick=" testerScenario()" >Tester</button>
-        <button class="btn" id="btn-compare" onclick="compareScenario()" >Comparer</button>
+        <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
+        <button class="btn" id="btn-compare" (click)="comparewebservice(info)" >Comparer</button>
       </div>
     </div>
   </div>

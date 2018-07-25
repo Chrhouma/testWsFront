@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
-        <a href=""><h2>LOGO</h2></a>
+        <a href=""><h2>FrontTest</h2></a>
       </div>
       <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
         <a href="#" class="btn-collapse">
@@ -48,8 +48,7 @@
         </div>
         <div class="row" id="container-body">
           <!-- affichage de description de scénario-->
-          <h3>Comparaison  de scénario 1 pour la date du 23/05/2018 et 24/05/2018</h3>
-
+          <h3>Comparaison  du scénario "retrait boulanger" pour la date du 23/07/2018 et 24/07/2018</h3>
           <div class="col-md-5 col-ms-6 col-xs-6" id="affichage">
             <div class="scrollbar-comparaison" id="style-7">
               <div class="force-overflow">
@@ -71,37 +70,13 @@
                      <div> <span class="registered-value">{{delta.registeredValue}}</span></div>
                    </tr>
                  </div>
-
-
-
-
                </div>
 
               </div>
             </div>
 
           </div>
-          <!-- affichage de la liste des scénario de scénario-->
-       <!--   <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
-            <div class="row">
-              <div class="scrollbar" id="style-7">
-                <div class="force-overflow">
 
-                  <div class="scenario_item"  *ngFor=" let record of info?.records">
-                    <input type="checkbox" [(ngModel)]="record.checked"/>{{record?.name}} {{record?.checked}}
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>-->
-        <!-- affichage de bouton -->
-        <!--<div class="row">
-          <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
-          <button class="btn" id="btn-compare" (click)="comparerScenario(info)" >Comparer</button>
-        </div>-->
       </div>
     </div>
 

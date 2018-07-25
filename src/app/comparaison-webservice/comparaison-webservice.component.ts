@@ -3,11 +3,11 @@ import {HttpClient} from '@angular/common/http';
 import {ActivatedRoute} from '@angular/router';
 import {Router} from '@angular/router';
 @Component({
-  selector: 'app-comparaison',
-  templateUrl: './comparaison.component.html',
-  styleUrls: ['./comparaison.component.css']
+  selector: 'app-comparaison-webservice',
+  templateUrl: './comparaison-webservice.component.html',
+  styleUrls: ['./comparaison-webservice.component.css']
 })
-export class ComparaisonComponent implements OnInit {
+export class ComparaisonWebserviceComponent implements OnInit {
   private info: any
   private allinfo: Array<any>;
   private alldelta: Array<any>;
@@ -23,26 +23,28 @@ export class ComparaisonComponent implements OnInit {
     this.idSelectedRecord1 = this.route.snapshot.params['idRecord1'];
     this.idSelectedRecord2 = this.route.snapshot.params['idRecord2'];
 
-    this.comparerScenario(this.idSelectedRecord1, this.idSelectedRecord2);
+    this.comparerWebservice(this.idSelectedRecord1, this.idSelectedRecord2);
   }
 
-  getAllInfoScenario(event: string) {
-    this.httpClient.get('http://localhost:8889/scenario?id=' + event)
-        .subscribe(Scenario => {
-          this.allinfo = Scenario['scenario'];
+  getAllInfoWebService(event: string) {
+    this.httpClient.get('http://localhost:8889/webService?id=' + event)
+        .subscribe(webService => {
+          this.allinfo = webService['webService'];
+          console.log(webService);
         });
   }
 
-  comparerScenario(event1: string, event2: string) {
-    this.httpClient.get('http://localhost:8889/scenarioRecord/comparer?idScenarioRecord1=' + event1 + '&idScenarioRecord2=' + event2)
+  comparerWebservice(event1: string, event2: string) {
+    this.httpClient.get('http://localhost:8889/serviceRecord/comparer?idServiceRecord1=' + event1 + '&idServiceRecord2=' + event2)
         .subscribe(Deltas => {
           this.alldelta = Deltas['deltas'];
-          this.getAllInfoScenario(this.idSelected);
+          this.getAllInfoWebService(this.idSelected);
 
         });
   }
 
   onSelect(event: string, event1: string, event2: string) {
-    this.router.navigate(['senarios', event, '/', event1, '/', event2]);
+    this.router.navigate(['webServices', event, '/', event1, '/', event2]);
   }
 }
+

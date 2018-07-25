@@ -27,9 +27,11 @@ export class SenariosComponent implements OnInit {
     ];
     webService: any;
     rang: any;
+    webServiceName: any;
 
-    webserviceArray: Array<{webservice: any, rang: any}>= [];
+    webserviceArray: Array<{webServiceName: any , webservice: any, rang: any}>= [];
     datas: any;
+    nbScenario: any;
     dataWebService: any;
     url: any;
     webserv: any;
@@ -47,9 +49,9 @@ export class SenariosComponent implements OnInit {
     getScenarios() {
         this.httpClient.get('http://localhost:8889/scenarios')
             .subscribe(scenarios => {
+                this.nbScenario = scenarios['nbScenario'];
                 this.datas = scenarios['scenarios'];
-                // console.log(scenarios);
-            });
+           });
     }
 
     onSelect(event: string) {
@@ -64,8 +66,9 @@ export class SenariosComponent implements OnInit {
             });
     }
 
-    addWebService(event1: string, event2: string) {
+    addWebService(event0: string , event1: string, event2: string) {
         let obj: any = {};
+        obj.webServiceName = event0;
         obj.webService = event1;
 
         obj.rang = event2;
@@ -79,13 +82,13 @@ export class SenariosComponent implements OnInit {
         this.httpClient.post('http://localhost:8889/scenario/save?name=' + event + '&cron=' + event1 , this.webserviceArray )
 
             .subscribe( scenario => {
-                console.log(scenario);
-                },
+                    this.getScenarios();
+               },
                 err => {
                 console.log('Erreur');
-                }
+               }
             );
-        this.getScenarios();
+
     }
 
 }

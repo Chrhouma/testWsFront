@@ -46,6 +46,7 @@ export class SenarioComponent implements  OnInit {
                 }
             }
         });
+
         this.httpClient.get('http://localhost:8889/scenarioRecord/comparer?idScenarioRecord1=' + event1 + '&idScenarioRecord2=' + event2)
             .subscribe(Deltas => {
                 this.router.navigate(['senarios/' + event + '/' + event1 + '/' + event2])

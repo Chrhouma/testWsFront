@@ -1,0 +1,87 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"/>
+
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script type= "text/javascript" src="js/jshome.js"></script>
+<!-- affichage de menu -->
+
+<div id="topo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
+        <a href=""><h2>FrontTest</h2></a>
+      </div>
+      <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
+        <a href="#" class="btn-collapse">
+          <div class="lista-collapse"></div>
+          <div class="lista-collapse"></div>
+          <div class="lista-collapse"></div>
+        </a>
+      </div>
+    </div>
+    <div class="row">
+      <ul id="menu-topo">
+        <li><a href="senarios">Scénarios</a></li>
+        <li><a href="webServices">Web services</a></li>
+        <li><a href="">Visualiser</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Fin affichage de menu -->
+  <!-- affichage de contenu -->
+
+  <div *ngFor=" let info of allinfo">
+
+    <div>
+      <div id="topo">
+        <div class="container" >
+          <div class="row" >
+            <nav>
+              <a href="/home">home</a>
+              >
+              <a href="senarios">web services</a>
+              >
+              <a >{{info.name}}</a>
+              >
+              <a href="/#">Comparaison</a>
+            </nav>
+          </div>
+          <div class="row" id="container-body">
+            <!-- affichage de description de scénario-->
+            <h3>Comparaison  du web service {{info.name}} pour la date du 23/07/2018 et 24/07/2018</h3>
+            <div class="col-md-5 col-ms-6 col-xs-6" id="affichage">
+              <div class="scrollbar-comparaison" id="style-7">
+                <div class="force-overflow">
+                  <div *ngFor=" let delta of alldelta">
+                    <div class="diffWs">
+                      {{delta.serviceRecordId}}
+                    </div>
+                    <div>
+                      <tr>
+                        <td>Node </td>
+                        <div ><span class="node-value">{{delta.node}}</span></div>
+                      </tr>
+                      <tr>
+                        <td class="expected"> Expected Value </td>
+                        <div> <span class="expected-value">{{delta.expctedValue}}</span></div>
+                      </tr>
+                      <tr>
+                        <td class="registered">Registered Value </td>
+                        <div> <span class="registered-value">{{delta.registeredValue}}</span></div>
+                      </tr>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>

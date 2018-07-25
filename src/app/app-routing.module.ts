@@ -10,6 +10,7 @@ import { SenarioComponent } from './senario/senario.component';
 import { WebservicesComponent } from './webservices/webservices.component';
 import { WebserviceComponent } from './webservice/webservice.component';
 import { ComparaisonComponent } from './comparaison/comparaison.component';
+import { ComparaisonWebserviceComponent } from './comparaison-webservice/comparaison-webservice.component';
 
 const routes: Routes = [
     {
@@ -41,6 +42,10 @@ const routes: Routes = [
     {
         path: 'webServices/:id',
         component: WebserviceComponent
+    },
+    {
+        path: 'webServices/:id/:idRecord1/:idRecord2',
+        component: ComparaisonWebserviceComponent
     },
    ];
 @NgModule({

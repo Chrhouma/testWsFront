@@ -9,7 +9,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-6 col-ms-6 col-xs-6" id="logo-topo">
-        <a href="home"><h2>LOGO</h2></a>
+        <a href="home"><h2>FrontTest</h2></a>
       </div>
       <div class="col-md-6 col-ms-6 col-xs-6" id="abre-menu-topo">
         <a href="#" class="btn-collapse">
@@ -43,7 +43,7 @@
         <!-- affichage de description de scénario-->
         <h3>Scénarios</h3>
         <div class="col-md-5 col-ms-6 col-xs-6" id="scenario-description">
-          <p> Cet outil permet de tester 2 sénarios  </p>
+          <p> Cet outil permet de tester {{nbScenario}} sénarios  </p>
 
           <div *ngFor=" let scenario of datas">
             <li>{{scenario.name}}</li>
@@ -71,12 +71,15 @@
             <select  [(ngModel)]="slectedRang" style="width: 30%;">
               <option *ngFor=" let rang of rangs" [ngValue]="rang"> {{rang.value}}</option>
             </select>
-            <button class="btn btn-lg btn-success" (click)="addWebService(slectedWebservice.id, slectedRang.value)"><span class="glyphicon glyphicon-ok-sign"></span> </button>
+            <button class="btn btn-lg btn-success" (click)="addWebService(slectedWebservice.name,slectedWebservice.id, slectedRang.value)"><span class="glyphicon glyphicon-ok-sign"></span> </button>
 
           </div>
-          <div style="padding-bottom: 5%  ;width: 100%;">
+         <!-- <div style="padding-bottom: 5%  ;width: 100%;">
 
             <input  placeholder="" [(ngModel)]="cron"type="text" style="width: 99%;height: 100px"/>
+          </div>-->
+          <div *ngFor="let webservice of webserviceArray">
+            {{webservice.webServiceName}}  {{webservice.rang}}
           </div>
 
           <div >
