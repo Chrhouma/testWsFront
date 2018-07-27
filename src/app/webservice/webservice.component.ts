@@ -37,7 +37,7 @@ export class WebserviceComponent implements OnInit {
   }
 
   public comparewebservice = (info: any) => {
-     let event, event1, event2;
+     let event, event1, event2, time1, time2;
 
      event = info.id ;
      info.records.forEach((record) => {
@@ -45,15 +45,17 @@ export class WebserviceComponent implements OnInit {
      if (record.checked) {
      if (event1) {
      event2 = record.id;
+     time2 = record.date;
      } else {
      event1 = record.id;
+     time1 = record.date;
      }
      }
     });
 
      this.httpClient.get('http://localhost:8889/serviceRecord/comparer?idServiceRecord1=' + event1 + '&idServiceRecord2=' + event2)
      .subscribe(Deltas => {
-     this.router.navigate(['webServices/' + event + '/' + event1 + '/' + event2])
+     this.router.navigate(['webServices/' + event + '/' + event1 + '/' + event2 + '/' + time1 + '/' + time2])
      this.alldelta = Deltas['deltas'];
      this.getAllInfoWebService(this.idSelected);
      console.log(Deltas);

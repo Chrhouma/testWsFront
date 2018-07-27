@@ -14,7 +14,8 @@ export class ComparaisonComponent implements OnInit {
   private idSelected: string;
   private idSelectedRecord1: string;
   private idSelectedRecord2: string;
-
+  private time1: string;
+  private time2: string;
   constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) {
   }
 
@@ -22,6 +23,8 @@ export class ComparaisonComponent implements OnInit {
     this.idSelected = this.route.snapshot.params['id'];
     this.idSelectedRecord1 = this.route.snapshot.params['idRecord1'];
     this.idSelectedRecord2 = this.route.snapshot.params['idRecord2'];
+    this.time1 = this.route.snapshot.params['time1'];
+    this.time2 = this.route.snapshot.params['time2'];
 
     this.comparerScenario(this.idSelectedRecord1, this.idSelectedRecord2);
   }

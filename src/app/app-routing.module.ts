@@ -32,7 +32,7 @@ const routes: Routes = [
         component: SenarioComponent
     },
     {
-        path: 'senarios/:id/:idRecord1/:idRecord2',
+        path: 'senarios/:id/:idRecord1/:idRecord2/:time1/:time2',
         component: ComparaisonComponent
     },
     {
@@ -44,7 +44,7 @@ const routes: Routes = [
         component: WebserviceComponent
     },
     {
-        path: 'webServices/:id/:idRecord1/:idRecord2',
+        path: 'webServices/:id/:idRecord1/:idRecord2/:time1/:time2',
         component: ComparaisonWebserviceComponent
     },
    ];

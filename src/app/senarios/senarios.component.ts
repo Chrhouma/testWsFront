@@ -90,6 +90,19 @@ export class SenariosComponent implements OnInit {
             );
 
     }
+    delteScenario(id: string) {
+        this.httpClient.delete('http://localhost:8889/scenario/delete?idScenario=' + id )
+
+            .subscribe(() => {
+                    this.getScenarios();
+                    console.log('ok');
+                },
+                err => {
+                    console.log('error to delete web service');
+                    this.getScenarios();
+
+                });
+    }
 
 }
 

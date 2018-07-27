@@ -62,5 +62,18 @@ export class WebservicesComponent implements OnInit {
                     console.log('error');
                 });
     }
+    delteWebservice(id: string) {
+        this.httpClient.delete('http://localhost:8889/webServices/delete?idWebservice=' + id )
+
+        .subscribe(() => {
+            this.getWebServices();
+            console.log('ok');
+            },
+             err => {
+            console.log('error to delete web service');
+                 this.getWebServices();
+
+        });
+    }
 }
 

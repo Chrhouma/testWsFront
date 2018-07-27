@@ -115,7 +115,7 @@
 .scenario_item{
     padding: 5px;
     cursor: pointer;
-    border-bottom: 10em;
+    border-bottom: 5em;
 
 
 }
@@ -267,3 +267,51 @@
   }.lista-collapse.botao-lista-baixo {
        top: 5px;
    }
+.suppScenario{
+    float: left;
+    background-color: #eee;
+    display: flex;
+    margin-top: -12px;
+    margin-right:2px;
+    margin-left: -10px;
+    padding: 3px;
+    color: #777;
+    border-left:1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    font-family: sans-serif;
+    line-height: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.suppScenario-other{
+    float: right;
+    background-color: #eee;
+    display: flex;
+    margin-top: -23px;
+    margin-right: 3px;
+    padding: 3px;
+    color: #777;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    font-family: sans-serif;
+    line-height: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.suppScenario:hover{
+    background-color: red;
+    color: #fff;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+.suppScenario-other:hover{
+    background-color: red;
+    color: #fff;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}

@@ -96,6 +96,7 @@
               <div class="force-overflow">
                 <div *ngFor=" let webService of datas | sortByName">
                   <div class="scenario_item"(click)="onSelect(webService.id)" >{{webService.name}} </div>
+                    <span class="suppScenario-other" (click)="delteWebservice(webService.id)">X</span>
                 </div>
               </div>
             </div>
