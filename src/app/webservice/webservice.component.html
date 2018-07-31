@@ -56,6 +56,41 @@
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
           </a>
         </div>
+        <!--zone de saisir les informations d'un nouveau service web-->
+        <div class="col-md-5 col-ms-6 col-xs-6" id="formulaire">
+          <div *ngIf="modifier">
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Name" [(ngModel)]="name"type="text" style="width: 68%"/>
+            <select  [(ngModel)]="slectedMethode" style="width: 30%;">
+              <option *ngFor=" let methode of methodes" [ngValue]="methode"> {{methode.name}}</option>
+
+            </select>
+
+          </div>
+          <div style="padding-bottom: 5%  ;width: 100%">
+            <input  placeholder="Url" [(ngModel)]="url"type="text" style="width: 99%"/>
+          </div>
+          <div style="padding-bottom: 5%">
+            <input  placeholder="Body" [(ngModel)]="body"type="text"style="width: 99%"/>
+          </div>
+          <div style="padding-bottom: 5%">
+            <input  placeholder="Description" [(ngModel)]="description"type="text"style="width: 99%"/>
+          </div>
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Input schema" [(ngModel)]="inputSchema"type="text"/>
+            <input  placeholder="Input path schema"[(ngModel)]="inputSchemapath" type="text"/>
+          </div>
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="Output schema" [(ngModel)]="outputSchema" type="text"/>
+            <input  placeholder="Output path schema" [(ngModel)]="outputSchemapath" type="text"/>
+          </div>
+          <div >
+            <button class="btn" id="btn-new"(click)="addWebService(name,url,slectedMethode.name,body,description, inputSchema, inputSchemapath,outputSchema,outputSchemapath)">Add Web Service</button>
+
+          </div>
+          </div>
+        </div>
+
         <!-- affichage de la liste des scénario de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
           <div class="row">
@@ -73,6 +108,7 @@
       <div class="row">
         <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
         <button class="btn" id="btn-compare" (click)="comparewebservice(info)" >Comparer</button>
+        <button class="btn" id="btn-update" (click)="modifier = !modifier" >{{modifier ? 'Annuler' : 'Modifier'}}</button>
       </div>
     </div>
   </div>

@@ -12,6 +12,7 @@ import { WebserviceComponent } from './webservice/webservice.component';
 import { ComparaisonComponent } from './comparaison/comparaison.component';
 import { ComparaisonWebserviceComponent } from './comparaison-webservice/comparaison-webservice.component';
 
+
 const routes: Routes = [
     {
         path: 'home',
@@ -31,7 +32,7 @@ const routes: Routes = [
         path: 'senarios/:id',
         component: SenarioComponent
     },
-    {
+   {
         path: 'senarios/:id/:idRecord1/:idRecord2/:time1/:time2',
         component: ComparaisonComponent
     },

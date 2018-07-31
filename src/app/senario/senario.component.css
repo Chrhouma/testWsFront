@@ -37,13 +37,24 @@
     cursor: pointer;
     border-radius: 50%;
 }
+.inpt-formulaire{
+    padding-bottom: 5% ;
+}
 #btn-new{
     border-radius: 3px;
     background-color: #FF8C00;
 }
+#btn-annuler{
+    border-radius: 3px;
+    background-color: rgba(151, 151, 151, 0.38);
+}
 #btn-compare{
     border-radius: 3px;
     background-color:#777777;
+}
+#btn-update{
+    border-radius: 3px;
+    background-color: rgba(151, 89, 86, 0.38);
 }
 #btn-test{
     border-radius: 3px;
@@ -62,12 +73,17 @@
 }
 
 #scenario-description{
-    width: 80%;
+    width: 30%;
     min-height: 80%;
     border-color: #1C79AD;
-    padding-top: 5%;
+    padding-top: 2%;
     padding-left: 20px;
 
+}
+#formulaire {
+    width: 33%;
+    min-height: 80%;
+    padding-top: 2%;
 }
 .body-fond{
     background-color: #eeeeee;
@@ -94,12 +110,11 @@
 }
 #liste-scénarios {
     width: 20%;
-    /*
     min-height: 40%;
-    */
-    height: 100%;
     padding-top:20px;
 }
+
+
 #liste-resultat {
     width: 30%;
     min-height: 40%;
@@ -140,7 +155,7 @@
 {
     margin-left: 00px;
     float: left;
-    height:400px;
+    height:200px;
     width: 90%;
     background: #F5F5F5;
     overflow-y: scroll;
@@ -260,3 +275,70 @@
   }.lista-collapse.botao-lista-baixo {
        top: 5px;
    }
+.suppScenario{
+    float: left;
+    background-color: #eee;
+    display: flex;
+    margin-top: -12px;
+    margin-right:2px;
+    margin-left: -10px;
+    padding: 3px;
+    color: #777;
+    border-left:1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    font-family: sans-serif;
+    line-height: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.suppScenario-other{
+    float: right;
+    background-color: #eee;
+    display: flex;
+    margin-top: -23px;
+    margin-right: 3px;
+    padding: 3px;
+    color: #777;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+    font-family: sans-serif;
+    line-height: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.suppScenario:hover{
+    background-color: red;
+    color: #fff;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+.suppScenario-other:hover{
+    background-color: red;
+    color: #fff;
+    border-left: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
+.btnok {
+    position: relative;
+    top: -6px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 100;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.btn1[_ngcontent-c1] {
+    height: 25px;
+    color: white;
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+}

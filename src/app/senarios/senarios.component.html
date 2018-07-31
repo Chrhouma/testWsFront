@@ -56,7 +56,7 @@
           <div style="padding-bottom: 5% ;width: 100%">
             <input  placeholder="Name" [(ngModel)]="name"type="text" style="width: 68%"/>
             <select  [(ngModel)]="selectedCron" style="width: 30%;">
-              <option *ngFor=" let cron of crons" [ngValue]="cron"> {{cron.value}}</option>
+              <option *ngFor=" let cron of crons" [ngValue]="cron"> {{cron.value}} heures</option>
             </select>
           </div>
           <div>
@@ -82,8 +82,9 @@
             {{webservice.webServiceName}}  {{webservice.rang}}
           </div>
 
-          <div >
-            <button class="btn" id="btn-new"(click)="addScenario(name,selectedCron.value)">Add Scenario</button>
+          <div>
+            <button class="btn" id="btn-new"(click)="addScenario(name,selectedCron.value)">Ajouter Scénario</button>
+            <button class="btn" id="btn-annuler"(click)="rafraichir()">Annuler</button>
           </div>
         </div>
         <!-- affichage de la liste des scénario de scénario-->
@@ -95,10 +96,6 @@
                   <div class="scenario_item"(click)="onSelect(scenario.id)" >{{scenario.name}} </div>
                   <span class="suppScenario-other" (click)="delteScenario(scenario.id)">X</span>
                 </div>
-
-
-
-
               </div>
             </div>
           </div>

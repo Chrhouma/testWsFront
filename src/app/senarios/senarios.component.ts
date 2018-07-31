@@ -12,10 +12,10 @@ import {ActivatedRoute} from '@angular/router';
 
 export class SenariosComponent implements OnInit {
     crons = [
-        {id: 1, value: '4 heures'},
-        {id: 2, value: '8 heures'},
-        {id: 3, value: '12 heures'},
-        {id: 4, value: '24 heures'}];
+        {id: 1, value: '4'},
+        {id: 2, value: '8'},
+        {id: 3, value: '12'},
+        {id: 4, value: '24'}];
     rangs = [
         {id: 1, value: 1}, {id: 2, value: 2}, {id: 3, value: 3},
         {id: 4, value: 4}, {id: 5, value: 5}, {id: 6, value: 6},
@@ -83,6 +83,7 @@ export class SenariosComponent implements OnInit {
 
             .subscribe( scenario => {
                     this.getScenarios();
+                   this.rafraichir();
                },
                 err => {
                 console.log('Erreur');
@@ -102,6 +103,10 @@ export class SenariosComponent implements OnInit {
                     this.getScenarios();
 
                 });
+    }
+    rafraichir(){
+        this.webserviceArray = [];
+
     }
 
 }

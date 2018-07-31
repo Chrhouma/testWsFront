@@ -60,19 +60,44 @@
             <span style="background-color: #FE9A2E"(click)="onSelect(record.id)">{{record?.name}} </span>
 
           </div>
-          <!--<div>
-            <span>Date d'exécution :</span> <time>24/05/2018</time>
-          </div>
-          <div>
-            <span>Nombre total de tests effectués :</span> 20
-          </div>
-          <div>
-            <span>Nombre total d'echecs :</span> 15
-          </div>
-          <div>
-            <span>Taux de modification :</span> 60%
-          </div>-->
         </div>
+        <!--zone de modification d'un  scenario-->
+
+
+        <div  class="col-md-5 col-ms-6 col-xs-6" id="formulaire">
+          <div *ngIf="modifier">
+          <div style="padding-bottom: 5% ;width: 100%">
+            <input  placeholder="{{info?.name}}"  [(ngModel)]="name"type="text" style="width: 68%"/>
+            <select  [(ngModel)]="selectedCron" style="width: 30%;">
+              <option *ngFor=" let cron of crons" [ngValue]="cron"> {{cron.value}} heures</option>
+            </select>
+          </div>
+          <div>
+            <span style="width: 50%;">WebServices</span>
+            <span style="padding-left: 30%">Rang</span>
+          </div>
+          <div>
+            <select  [(ngModel)]="slectedWebservice" style="height: 25px">
+              <option *ngFor=" let webService of dataWebService" [ngValue]="webService"> {{webService.name}}</option>
+            </select>
+
+            <select  [(ngModel)]="slectedRang" style="height: 25px;">
+              <option *ngFor=" let rang of rangs" [ngValue]="rang"> {{rang.value}}</option>
+            </select>
+            <button class="btn btn-lg btn-success" (click)="addWebService(slectedWebservice.name,slectedWebservice.id, slectedRang.value)"><span class="btnok glyphicon-ok-sign"></span> </button>
+
+          </div>
+          <div *ngFor="let webservice of webserviceArray">
+            {{webservice.webServiceName}}  {{webservice.rang}}
+          </div>
+
+          <div >
+            <button class="btn" id="btn-new"(click)="updateScenario(name,selectedCron.value)">Enregistrer</button>
+            <button class="btn" id="btn-annuler"(click)="rafraichir()">Annuler</button>
+          </div>
+        </div>
+        </div>
+
         <!-- affichage de la liste des scénario de scénario-->
         <div class="col-md-5 col-ms-6 col-xs-6" id="liste-scénarios">
           <div class="row">
@@ -88,15 +113,14 @@
               </div>
             </div>
           </div>
-         <!-- <div class="row">
-            <button class="btn" id="btn-new">Comparer</button>
-          </div>-->
         </div>
       </div>
       <!-- affichage de bouton -->
       <div class="row">
         <button class="btn" id="btn-test" (click)=" testerScenario(info.id)" >Tester</button>
         <button class="btn" id="btn-compare" (click)="comparerScenario(info)" >Comparer</button>
+        <button class="btn" id="btn-update" (click)="modifier = !modifier" >{{modifier ? 'Annuler' : 'Modifier'}}</button>
+
       </div>
     </div>
   </div>

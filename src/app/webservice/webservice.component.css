@@ -45,6 +45,10 @@
     border-radius: 3px;
     background-color:#777777;
 }
+#btn-update{
+    border-radius: 3px;
+    background-color: rgba(151, 89, 86, 0.38);
+}
 #btn-test{
     border-radius: 3px;
     background-color:darksalmon;
@@ -62,7 +66,7 @@
 }
 
 #scenario-description{
-    width: 80%;
+    width: 30%;
     min-height: 80%;
     border-color: #1C79AD;
     padding-top: 5%;
