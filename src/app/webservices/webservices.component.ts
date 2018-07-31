@@ -62,7 +62,7 @@ export class WebservicesComponent implements OnInit {
                     console.log('error');
                 });
     }
-    delteWebservice(id: string) {
+       delteWebservice(id: string) {
         this.httpClient.delete('http://localhost:8889/webServices/delete?idWebservice=' + id )
 
         .subscribe(() => {
