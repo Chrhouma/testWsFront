@@ -89,7 +89,6 @@ export class SenarioComponent implements  OnInit {
         let obj: any = {};
         obj.webServiceName = event0;
         obj.webService = event1;
-
         obj.rang = event2;
         this.webserviceArray.push(obj);
         console.log(this.webserviceArray);

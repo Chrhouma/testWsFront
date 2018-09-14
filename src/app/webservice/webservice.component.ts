@@ -72,7 +72,6 @@ export class WebserviceComponent implements OnInit {
 
     updateWebService(name: string, url: string, slectedMethode: string, body:  string, description: string, inputschema: string,
                      inputSchemapath: string, outputSchema: string, outputSchemapath: string) {
-
         this.httpClient.post('http://localhost:8889/webService/update?id=' + this.idSelected + '&name=' + name + '&url=' + url +
             '&description=' + description + '&methode=' + slectedMethode, body , '&inputSchemaName=' + inputschema +
             '&inputSchemapath=' + inputSchemapath + '&outputSchemaName=' + outputSchema +
@@ -97,5 +96,13 @@ export class WebserviceComponent implements OnInit {
                 () => {
                     // this.getinfo();
                 });
+    }
+
+    testerWebService() {
+        this.httpClient.get('http://localhost:8889/webService/tester?idWebservice=' + this.idSelected)
+            .subscribe(() => {
+                this.getAllInfoWebService(this.idSelected);
+          //  this.getAllInfoScenario(this.idSelected);
+        });
     }
 }
